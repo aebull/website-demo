@@ -2,7 +2,7 @@
    v2.0-modified | 20110126
    License: none (public domain)
 */
-@import url("https://fonts.googleapis.com/css?family=Bitter|Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -373,6 +373,7 @@ textarea {
 
 body {
   font-family: 'Open Sans', 'Lato', 'Helvetica', sans-serif;
+  font-size: 18px;
 }
 
 img {
@@ -546,8 +547,44 @@ img {
   margin: 0 auto;
 }
 
+.bgRed {
+  background-color: #BD4F4F !important;
+}
+
+.textRed {
+  color: #BD4F4F;
+}
+
+.textWhite {
+  color: white;
+}
+
+.mainHeading {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.button {
+  display: inline-block;
+  background-color: grey;
+  color: white;
+  padding: 6px 12px;
+  margin-top: 10px;
+  border-color: transparent;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.buttonRound {
+  border-radius: 15px;
+}
+
+.buttonLarge {
+  font-size: 1.5em;
+  padding: 10px 50px;
+}
+
 .navbar {
-  background-color: #BD4F4F;
   padding: 10px;
   color: white;
   position: fixed;
@@ -608,6 +645,69 @@ img {
 
   .navList {
     width: auto;
+  }
+}
+.banner {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../images/banner.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bannerImage {
+  display: none;
+}
+
+.bannerText {
+  text-align: center;
+  padding: 0 10px;
+}
+
+.buttonHeader {
+  width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  .banner {
+    justify-content: flex-end;
+    flex-direction: column;
+  }
+
+  .buttonHeader {
+    width: auto;
+  }
+
+  .bannerImage {
+    display: block;
+    max-width: 250px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+}
+@media screen and (min-width: 900px) {
+  .banner {
+    height: 90vh;
+  }
+  .banner .container {
+    padding: 0 10px;
+    position: relative;
+    bottom: -10vh;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .bannerText {
+    text-align: left;
+    padding: 0;
+  }
+
+  .bannerImage {
+    margin: 0;
   }
 }
 

@@ -70,7 +70,6 @@ input[type=search] {
   -webkit-appearance: none;
   -moz-appearance: none;
   -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
 
@@ -265,7 +264,8 @@ html input[disabled] {
  */
 input[type="checkbox"],
 input[type="radio"] {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   /* 1 */
   padding: 0;
   /* 2 */
@@ -283,7 +283,6 @@ input[type="radio"] {
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
-  -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
   /* 2 */
   box-sizing: content-box;
@@ -366,7 +365,8 @@ textarea {
 }
 
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
@@ -564,6 +564,11 @@ img {
   font-weight: bold;
 }
 
+.subHeading {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
 .button {
   display: inline-block;
   background-color: grey;
@@ -584,6 +589,10 @@ img {
   padding: 10px 50px;
 }
 
+.textCenter {
+  text-align: center;
+}
+
 .navbar {
   padding: 10px;
   color: white;
@@ -591,13 +600,21 @@ img {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 10000;
 }
 
 .navContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .navLogo {
@@ -618,7 +635,10 @@ img {
 
 @media screen and (min-width: 600px) {
   .navContainer {
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 
   .navIcon {
@@ -629,8 +649,12 @@ img {
     display: block !important;
   }
   .navList ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 
   .listItem {
@@ -639,8 +663,12 @@ img {
 }
 @media screen and (min-width: 900px) {
   .navContainer {
-    flex-direction: row;
-    flex-wrap: nowrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
   }
 
   .navList {
@@ -650,13 +678,20 @@ img {
 .banner {
   width: 100%;
   height: 100vh;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.3))), url("../images/banner.jpg");
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../images/banner.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .bannerImage {
@@ -674,8 +709,13 @@ img {
 
 @media screen and (min-width: 600px) {
   .banner {
-    justify-content: flex-end;
-    flex-direction: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 
   .buttonHeader {
@@ -692,13 +732,18 @@ img {
 @media screen and (min-width: 900px) {
   .banner {
     height: 90vh;
+    margin-bottom: 13vh;
   }
   .banner .container {
     padding: 0 10px;
     position: relative;
     bottom: -10vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 
   .bannerText {
@@ -708,6 +753,57 @@ img {
 
   .bannerImage {
     margin: 0;
+  }
+}
+.element:nth-child(odd) {
+  background: red;
+}
+.element:nth-child(even) {
+  background: blue;
+}
+
+.imageCol {
+  padding: 2em;
+}
+
+.textCol {
+  text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+  .altRow {
+    margin: 6em 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .altRow:nth-child(odd) .imageCol {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .altRow:nth-child(odd) .textCol {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    text-align: left;
+  }
+  .altRow:nth-child(even) .imageCol {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    text-align: right;
+  }
+  .altRow:nth-child(even) .textCol {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    text-align: right;
   }
 }
 

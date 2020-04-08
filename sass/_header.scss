@@ -28,9 +28,6 @@
 
 
 
-
-
-
 @media screen and (min-width:$mdWidth){
     .banner{
         justify-content: flex-end;
@@ -49,18 +46,10 @@
     }
 }
 
-
-
-
-
-
-
-
-
-
 @media screen and (min-width:$lgWidth){
     .banner{
         height: 90vh;
+        margin-bottom: 13vh;
         .container{
             padding: 0 10px;
             position: relative;
@@ -77,5 +66,14 @@
 
     .bannerImage{
         margin: 0;
+    }
+}
+
+.element{
+    &:nth-child(odd){
+        background: red
+    }
+    &:nth-child(even){
+        background: blue
     }
 }
